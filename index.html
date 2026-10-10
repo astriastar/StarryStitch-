@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>StarryStitch | Custom Crochet Orders</title>
+<style>
+:root{--pink:#f6dce8;--pink2:#fff5f9;--berry:#922b5a;--berry2:#a83268;--ink:#38212e;--muted:#725565;--line:#d9a6bd;--white:#fff}
+*{box-sizing:border-box}
+body{margin:0;background:var(--pink2);color:var(--ink);font-family:Arial,Helvetica,sans-serif;line-height:1.5}
+header{background:linear-gradient(135deg,#f6dce8,#fbeaf2);text-align:center;padding:30px 16px 26px;border-radius:0 0 28px 28px}
+.brand{font: bold clamp(2.1rem,7vw,3.2rem) Georgia,serif;color:var(--berry);letter-spacing:.5px;margin:3px 0}
+.tagline{color:#58253e;font-weight:700;font-size:.9rem;margin:7px 0 0}
+.wrap{width:min(100% - 28px,820px);margin:22px auto 35px}
+.intro{color:var(--muted);text-align:center;font-size:.95rem;margin:0 0 18px}
+form,.summary{background:#fff;border:1px solid #efd7e2;border-radius:18px;padding:clamp(16px,4vw,28px);box-shadow:0 5px 20px #7b31500b}
+.section{font:bold 1.2rem Georgia,serif;color:#84234f;background:#f6dce8;border-left:5px solid var(--berry2);border-radius:9px;padding:11px 13px;margin:25px 0 13px}
+.section:first-child{margin-top:0}
+label.field{display:block;font-size:.93rem;font-weight:800;color:#3e2031;margin:15px 0 7px}
+input:not([type=radio]):not([type=checkbox]),select,textarea{display:block;width:100%;border:1.5px solid #bd7896;border-radius:10px;background:#fff;padding:12px;color:#321b29;font:500 .95rem Arial,Helvetica,sans-serif}
+input::placeholder,textarea::placeholder{color:#75606b;opacity:1}
+textarea{min-height:78px;resize:vertical}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 14px}
+.measure-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 12px}
+.hint{font-size:.83rem;color:#583d4b;line-height:1.6;margin:8px 0 14px}
+.choices{display:flex;gap:9px;flex-wrap:wrap}
+.choice{flex:1;min-width:90px;border:1.5px solid #bd7896;border-radius:10px;padding:11px 7px;background:#fff;text-align:center;cursor:pointer;font-weight:700;color:#482236}
+.choice:has(input:checked){background:#f3d2e1;border-color:#922b5a}
+.choice input{accent-color:#922b5a}
+.note{padding:14px;background:#f5dce7;border-radius:10px;color:#482236;font-size:.87rem;font-weight:600;line-height:1.65;margin:16px 0}
+.agree{display:flex;gap:10px;align-items:flex-start;font-size:.87rem;font-weight:700;margin:17px 0}
+.agree input{margin-top:4px;accent-color:var(--berry);flex-shrink:0}
+button{width:100%;border-radius:11px;padding:14px;font-weight:800;font-size:1rem;cursor:pointer;margin-top:12px}
+.primary{background:var(--berry2);color:white;border:2px solid var(--berry2)}
+.secondary{background:white;color:var(--berry);border:2px solid var(--berry2)}
+.summary{display:none;margin-top:18px}
+.summary h2{font: bold 1.6rem Georgia,serif;color:var(--berry);margin-top:0}
+.line{padding:9px 0;border-bottom:1px solid #ecd5df;font-size:.9rem;overflow-wrap:anywhere}
+footer{text-align:center;font: bold 1rem Georgia,serif;color:#84234f;padding:22px 10px 30px}
+@media(max-width:520px){.grid,.measure-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:0 10px}.section{font-size:1.08rem}.wrap{width:calc(100% - 20px)}}
+@media(max-width:360px){.grid,.measure-grid{grid-template-columns:1fr}.brand{font-size:2rem}}
+</style>
+</head>
+<body>
+<header>
+  <div style="font-size:2rem" aria-hidden="true">🎀 🧶 ✨</div>
+  <div class="brand">StarryStitch</div>
+  <div class="tagline">CUSTOM CROCHET ORDERS</div>
+  <p class="tagline" style="font-weight:600">Your vision, our stitches ♡</p>
+</header>
+<main class="wrap">
+<p class="intro">Tell us what you have in mind and we’ll help bring your custom crochet piece to life.</p>
+<form id="orderForm">
+  <div class="section">♡ 1. Customer Information</div>
+  <label class="field" for="name">Full name <span>*</span></label><input id="name" name="Full name" required placeholder="Enter your full name">
+  <label class="field" for="phone">Phone / WhatsApp number <span>*</span></label><input id="phone" name="Phone / WhatsApp" required placeholder="Your contact number">
+
+  <div class="section">♡ 2. Your Custom Design</div>
+  <label class="field" for="design">What would you like us to make? *</label>
+  <select id="design" name="Design" required><option value="">Choose your item</option><option>Top / Blouse</option><option>Dress</option><option>Skirt</option><option>Cardigan / Sweater</option><option>Trousers / Shorts</option><option>Bag / Purse</option><option>Accessories</option><option>Plushie</option><option>Home décor</option><option>Other</option></select>
+  <label class="field" for="reference">Reference picture link (optional)</label><input id="reference" name="Reference link" type="url" placeholder="Paste an image link if available">
+  <p class="hint">You can also send your reference picture directly to StarryStitch.</p>
+  <label class="field" for="colour">Preferred colour(s) *</label><input id="colour" name="Preferred colours" required placeholder="e.g. Baby pink and white">
+  <label class="field">Preferred yarn thickness *</label>
+  <div class="choices">
+    <label class="choice"><input type="radio" name="Yarn thickness" value="Thin" required> Thin</label>
+    <label class="choice"><input type="radio" name="Yarn thickness" value="Medium"> Medium</label>
+    <label class="choice"><input type="radio" name="Yarn thickness" value="Thick"> Thick</label>
+  </div>
+  <p class="hint">Thin for a delicate finish, medium for a balanced texture, or thick for a chunky look. Final yarn choice depends on the design and availability.</p>
+  <label class="field" for="yarn">Preferred yarn type</label><select id="yarn" name="Preferred yarn type"><option>Recommend one for me</option><option>Cotton</option><option>Acrylic</option><option>Wool</option><option>Other / discuss with maker</option></select>
+
+  <div class="section">♡ 3. Body Measurements</div>
+  <p class="hint">For customised clothing, fill in the measurements that apply to your design. You can leave the rest blank. Use a flexible tape measure and select your unit below.</p>
+  <label class="field" for="unit">Measurement unit</label><select id="unit" name="Measurement unit"><option>Inches</option><option>Centimetres (cm)</option></select>
+  <div class="measure-grid">
+    <div><label class="field" for="bust">Bust / Chest</label><input id="bust" name="Bust / Chest" type="number" min="0" step="any" placeholder="Measurement"></div>
+    <div><label class="field" for="waist">Waist</label><input id="waist" name="Waist" type="number" min="0" step="any" placeholder="Measurement"></div>
+    <div><label class="field" for="hips">Hips</label><input id="hips" name="Hips" type="number" min="0" step="any" placeholder="Measurement"></div>
+    <div><label class="field" for="shoulder">Shoulder width</label><input id="shoulder" name="Shoulder width" type="number" min="0" step="any" placeholder="Measurement"></div>
+    <div><label class="field" for="arm">Arm circumference</label><input id="arm" name="Arm circumference" type="number" min="0" step="any" placeholder="Measurement"></div>
+    <div><label class="field" for="sleeve">Sleeve length</label><input id="sleeve" name="Sleeve length" type="number" min="0" step="any" placeholder="Measurement"></div>
+    <div><label class="field" for="toplength">Top / blouse length</label><input id="toplength" name="Top / blouse length" type="number" min="0" step="any" placeholder="Measurement"></div>
+    <div><label class="field" for="dresslength">Dress length</label><input id="dresslength" name="Dress length" type="number" min="0" step="any" placeholder="Measurement"></div>
+    <div><label class="field" for="skirtlength">Skirt length</label><input id="skirtlength" name="Skirt length" type="number" min="0" step="any" placeholder="Measurement"></div>
+    <div><label class="field" for="thigh">Thigh circumference</label><input id="thigh" name="Thigh circumference" type="number" min="0" step="any" placeholder="Measurement"></div>
+    <div><label class="field" for="inseam">Inside leg length</label><input id="inseam" name="Inside leg length" type="number" min="0" step="any" placeholder="Measurement"></div>
+    <div><label class="field" for="trouserlength">Trouser / shorts length</label><input id="trouserlength" name="Trouser / shorts length" type="number" min="0" step="any" placeholder="Measurement"></div>
+    <div><label class="field" for="neck">Neck circumference</label><input id="neck" name="Neck circumference" type="number" min="0" step="any" placeholder="Measurement"></div>
+    <div><label class="field" for="underbust">Underbust</label><input id="underbust" name="Underbust" type="number" min="0" step="any" placeholder="Measurement"></div>
+  </div>
+  <label class="field" for="othermeasure">Other measurements or fit preferences</label><textarea id="othermeasure" name="Other measurements / fit preferences" placeholder="e.g. cropped, fitted, loose or oversized"></textarea>
+  <div class="note">You do not need to fill in every measurement—only the ones relevant to your item. StarryStitch can confirm any extra measurements needed before starting.</div>
+
+  <div class="section">♡ 4. Budget & Delivery</div>
+  <label class="field" for="budget">Your budget (GH₵) *</label><input id="budget" name="Budget (GH₵)" type="number" min="0" step="any" required placeholder="Enter your budget">
+  <label class="field" for="date">Preferred completion date *</label><input id="date" name="Preferred completion date" type="date" required>
+  <label class="field" for="delivery">Delivery or pickup? *</label><select id="delivery" name="Delivery preference" required><option value="">Choose one</option><option>Delivery</option><option>Self-pickup</option></select>
+  <label class="field" for="location">Delivery location (if applicable)</label><input id="location" name="Delivery location" placeholder="Town or area">
+  <label class="field" for="extra">Additional requests</label><textarea id="extra" name="Additional requests" placeholder="Tell us any other details for your order"></textarea>
+
+  <div class="section">♡ 5. Order Confirmation</div>
+  <label class="field" for="payment">Preferred payment method</label><select id="payment" name="Preferred payment method"><option>To be discussed</option><option>Mobile Money</option><option>Bank transfer</option><option>Other</option></select>
+  <label class="field" for="deposit">Deposit status</label><select id="deposit" name="Deposit status"><option>Not paid yet</option><option>Ready to pay after confirmation</option><option>Already paid — needs verification</option></select>
+  <div class="note">Submitting this form is an order request, not a confirmed order. Your design, yarn availability, final price, completion date and deposit/payment arrangements must be agreed upon before work begins.</div>
+  <label class="agree"><input type="checkbox" id="agree" required><span>I understand and agree to the order confirmation terms above. *</span></label>
+  <button class="primary" type="submit">Review My Order ♡</button>
+</form>
+
+<section class="summary" id="summary" aria-live="polite">
+  <h2>Your StarryStitch Order ♡</h2>
+  <p>Please review your answers, then copy the order details to send to StarryStitch.</p>
+  <div id="summaryLines"></div>
+  <button class="primary" id="sendOrder" type="button">Send Order to StarryStitch ♡</button>
+  <button class="secondary" id="copyOrder" type="button">Copy Order Details</button>
+  <button class="secondary" id="editOrder" type="button">Edit My Answers</button>
+  <p class="hint">Tap “Send Order” to email your request to StarryStitch. This is a request, not a confirmed order. Please do not include sensitive information in the form.</p>
+</section>
+</main>
+<footer>StarryStitch ♡<br><span style="font:normal .85rem Arial,sans-serif">Handmade with love, one stitch at a time.</span></footer>
+<script>
+(function(){
+const form=document.getElementById('orderForm'),summary=document.getElementById('summary'),lines=document.getElementById('summaryLines');let orderText='';
+form.addEventListener('submit',function(e){
+ e.preventDefault();if(!form.reportValidity())return;
+ const fd=new FormData(form),unit=fd.get('Measurement unit');let entries=[];
+ for(const [key,value] of fd.entries()){
+  if(key==='Measurement unit'||key==='agree'||!String(value).trim())continue;
+  const measurements=['Bust / Chest','Waist','Hips','Shoulder width','Arm circumference','Sleeve length','Top / blouse length','Dress length','Skirt length','Thigh circumference','Inside leg length','Trouser / shorts length','Neck circumference','Underbust'];
+  entries.push([key,String(value)+(measurements.includes(key)?' '+unit:'')]);
+ }
+ orderText='STARRYSTITCH — CUSTOM CROCHET ORDER\n\n'+entries.map(x=>x[0]+': '+x[1]).join('\n')+'\n\nCustomer acknowledgement: I understand the order is confirmed only after the design, price, completion date and payment arrangements are agreed.';
+ lines.replaceChildren();
+ entries.forEach(([k,v])=>{const div=document.createElement('div');div.className='line';const b=document.createElement('strong');b.textContent=k+': ';div.append(b,document.createTextNode(v));lines.appendChild(div)});
+ summary.style.display='block';summary.scrollIntoView({behavior:'smooth',block:'start'});
+});
+document.getElementById('sendOrder').addEventListener('click',function(){
+ const destination='REPLACE_WITH_YOUR_EMAIL';
+ if(destination==='REPLACE_WITH_YOUR_EMAIL'){alert('Before publishing, replace REPLACE_WITH_YOUR_EMAIL in this file with the email address where StarryStitch should receive orders.');return;}
+ const sender=document.createElement('form');sender.method='POST';sender.action='https://formsubmit.co/'+destination;
+ const add=(name,value)=>{const input=document.createElement('input');input.type='hidden';input.name=name;input.value=value;sender.appendChild(input)};
+ add('_subject','New StarryStitch Crochet Order');add('_template','table');add('_captcha','true');add('Order details',orderText);
+ document.body.appendChild(sender);sender.submit();
+});
+document.getElementById('copyOrder').addEventListener('click',async function(){
+ try{await navigator.clipboard.writeText(orderText);this.textContent='Copied! ✓'}
+ catch(e){const ta=document.createElement('textarea');ta.value=orderText;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');this.textContent='Copied! ✓'}catch(err){this.textContent='Please copy the order details manually'}ta.remove()}
+});
+document.getElementById('editOrder').addEventListener('click',()=>{summary.style.display='none';form.scrollIntoView({behavior:'smooth',block:'start'})});
+const today=new Date();const local=new Date(today.getTime()-today.getTimezoneOffset()*60000).toISOString().slice(0,10);document.getElementById('date').min=local;
+})();
+</script>
+</body>
+</html>
