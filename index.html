@@ -135,7 +135,7 @@ form.addEventListener('submit',function(e){
  summary.style.display='block';summary.scrollIntoView({behavior:'smooth',block:'start'});
 });
 document.getElementById('sendOrder').addEventListener('click',function(){
- const destination= 'astriabts86@gmail.com';
+ const destination='astriabts86@gmail.com';
  if(destination==='REPLACE_WITH_YOUR_EMAIL'){alert('Before publishing, replace REPLACE_WITH_YOUR_EMAIL in this file with the email address where StarryStitch should receive orders.');return;}
  const sender=document.createElement('form');sender.method='POST';sender.action='https://formsubmit.co/'+destination;
  const add=(name,value)=>{const input=document.createElement('input');input.type='hidden';input.name=name;input.value=value;sender.appendChild(input)};
